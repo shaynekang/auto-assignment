@@ -21,11 +21,11 @@ Or install it yourself as:
 TODO: Write usage instructions here
 
 ## TODO
-### 0.0.3
-  * decoupling rails from test
-  * test rails compatibility
-  * parent: '#{model_name}' option
-  * as: '#{model_name}' option
+### Version 0.0.3
+  * decouple rails from test
+  * test aboutrails compatibility
+  * auto_assignment :model, :parent => '#{model_name}' option
+  * auto_assignment :model, :as => '#{model_name}' option
 
 ### NOT YET
   * scoped
