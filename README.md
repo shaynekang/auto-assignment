@@ -20,6 +20,17 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## TODO
+### 0.0.3
+  * decoupling rails from test
+  * test rails compatibility
+  * parent: '#{model_name}' option
+  * as: '#{model_name}' option
+
+### NOT YET
+  * scoped
+  * performance check
+
 ## Contributing
 
 1. Fork it
