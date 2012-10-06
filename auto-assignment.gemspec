@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["paranoiase@gmail.com"]
   gem.description   = "Auto assign model resource and collection from controller"
   gem.summary       = %q{Auto assignment of ruby on rails}
-  gem.homepage      = "http://www.twitter.com/paranoiase"
+  gem.homepage      = "https://github.com/paranoiase/auto-assignment"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
