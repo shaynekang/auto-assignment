@@ -1,6 +1,6 @@
 # Auto::Assignment
 
-TODO: Write a gem description
+Auto assign model resource and collection from controller
 
 ## Installation
 
@@ -22,10 +22,10 @@ TODO: Write usage instructions here
 
 ## TODO
 ### Version 0.0.3
-  * decouple rails from test
-  * test aboutrails compatibility
   * auto_assignment :model, :parent => '#{model_name}' option
   * auto_assignment :model, :as => '#{model_name}' option
+  * decouple rails from test
+  * test rails compatibility
 
 ### NOT YET
   * scoped
