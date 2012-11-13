@@ -17,8 +17,74 @@ Or install it yourself as:
     $ gem install auto-assignment
 
 ## Usage
+### Before
+```ruby
+class PostsController < ApplicationController
+  def index
+    @posts = Post.all
+  end
 
-TODO: Write usage instructions here
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new(params[:post])
+    @post.save!
+    redirect_to @post, notice: 'Post was successfully created.'
+  rescue ActiveRecord::RecordInvalid
+    render 'new'
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update_attributes!(params[:post])
+    redirect_to @post, notice: 'Post was successfully updated.'
+  rescue ActiveRecord::RecordInvalid
+    render 'edit'
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_url
+  end
+end
+```
+
+### After
+```ruby
+class PostsController < ApplicationController
+  auto_assignment
+
+  def create
+    @post.save!
+    redirect_to @post, notice: 'Post was successfully created.'
+  rescue ActiveRecord::RecordInvalid
+    render 'new'
+  end
+
+  def update
+    @post.save!
+    redirect_to @post, notice: 'Post was successfully updated.'
+  rescue ActiveRecord::RecordInvalid
+    render 'edit'
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_url
+  end
+end
+```
 
 ## TODO
 ### Version 0.0.3
