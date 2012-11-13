@@ -1,2 +1,2 @@
-require './spec/mocks/post'
-require './spec/mocks/posts_controller'
+require './spec/mocks/model'
+require './spec/mocks/models_controller'

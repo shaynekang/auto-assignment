@@ -1,31 +1,31 @@
 require 'spec_helper'
 
 describe AutoAssignment do
-  let!(:new_post) { Post.new(title: "new post") }
-  let!(:exist_post) { Post.new(title: "exist post") }
+  let!(:new_model) { Model.new(title: "new model") }
+  let!(:exist_model) { Model.new(title: "exist model") }
 
   before do
-    Post.stub(:new) { new_post }
-    Post.stub(:find) { exist_post }
+    Model.stub(:new) { new_model }
+    Model.stub(:find) { exist_model }
   end
 
   it "should assign new resource without id" do
-    controller = PostsController.new
-    controller.auto_assignment('post', {})
-    controller.post.should == new_post
+    controller = ModelsController.new
+    controller.auto_assignment('model', {})
+    controller.model.should == new_model
   end
 
   it "should assign exist resource with id" do
-    controller = PostsController.new
+    controller = ModelsController.new
     controller.params = {id: 1}
-    controller.auto_assignment('post', {})
-    controller.post.should == exist_post
+    controller.auto_assignment('model', {})
+    controller.model.should == exist_model
   end
 
   it "should assign resource's attributes" do
-    controller = PostsController.new
-    controller.params = {post: {description: "Hello World"}}
-    controller.auto_assignment('post', {})
-    controller.post.description.should == "Hello World"
+    controller = ModelsController.new
+    controller.params = {model: {description: "Hello World"}}
+    controller.auto_assignment('model', {})
+    controller.model.description.should == "Hello World"
   end
 end

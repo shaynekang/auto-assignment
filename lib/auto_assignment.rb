@@ -15,22 +15,23 @@ module AutoAssignment
   end
 
   def auto_assignment(resource_name, options)
-    collection_name = resource_name.tableize
-    model_name = collection_name.classify.constantize
+    resource_name = resource_name.to_sym
+    collection_name = resource_name.to_s.tableize
+    model = collection_name.classify.constantize
 
-    collection = model_name.scoped
+    collection = model.scoped
     resource =  if params[:id].blank?
                   collection.new
                 else
                   collection.find(params[:id])
                 end
 
-    if params[:post]
-      resource.attributes = params[:post]
+    if params[resource_name]
+      resource.attributes = params[resource_name]
     end
 
-    instance_variable_set('@posts', collection)
-    instance_variable_set('@post', resource)
+    instance_variable_set("@#{collection_name}", collection)
+    instance_variable_set("@#{resource_name}", resource)
   end
 
   def self.included(base)
