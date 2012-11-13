@@ -63,6 +63,7 @@ end
 ### After
 ```ruby
 class PostsController < ApplicationController
+  # declare this. then,
   auto_assignment
 
   def create
